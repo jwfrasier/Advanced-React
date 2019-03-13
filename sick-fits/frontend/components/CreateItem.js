@@ -45,6 +45,10 @@ class CreateItem extends Component {
     this.setState({ [name]: val });
   };
 
+  uploadFile = e => {
+    console.log("uploading file");
+  };
+
   render() {
     return (
       // you have to wrap your form in a mutation in order for it to have access to that mutation
@@ -66,6 +70,17 @@ class CreateItem extends Component {
           >
             <Error error={error} />
             <fieldset disabled={loading} aria-busy={loading}>
+              <label htmlFor="file">
+                Image
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  placeholder="Upload an image"
+                  required
+                  onChange={this.uploadFile}
+                />
+              </label>
               <label htmlFor="title">
                 Title
                 <input
