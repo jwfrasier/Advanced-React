@@ -25,7 +25,7 @@ const Logo = styled.h1`
     background: ${props => props.theme.red};
     color: white;
     text-transform: uppercase;
-    text-decoration; none;
+    text-decoration: none;
   }
   @media (max-width: 1300px) {
     margin: 0;
