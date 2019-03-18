@@ -4,8 +4,8 @@ import styled from "styled-components";
 import gql from "graphql-tag";
 import Item from "./Item";
 // Writing a query
-const All_ITEMS_QUERY = gql`
-  query All_ITEMS_QUERY {
+const ALL_ITEMS_QUERY = gql`
+  query ALL_ITEMS_QUERY {
     items {
       id
       title
@@ -28,12 +28,12 @@ const ItemsList = styled.div`
   margin: 0 auto;
 `;
 
-export default class Items extends Component {
+class Items extends Component {
   render() {
     return (
       <div>
         <Center>
-          <Query query={All_ITEMS_QUERY}>
+          <Query query={ALL_ITEMS_QUERY}>
             {({ data, error, loading }) => {
               if (loading) return <p>Loading...</p>;
               if (error) return <p>Error: {error.message}</p>;
@@ -51,5 +51,5 @@ export default class Items extends Component {
     );
   }
 }
-
-export { All_ITEMS_QUERY };
+export default Items;
+export { ALL_ITEMS_QUERY };
