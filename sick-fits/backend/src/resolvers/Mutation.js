@@ -14,16 +14,23 @@ const Mutations = {
       info
     );
     return item;
+  },
+  updateItem(parent, arguments, context, info) {
+    // First take a copy of the updates
+    const updates = { ...arguments };
+    //remove id from the updates
+    delete updates.id;
+    //run the update method
+    return context.db.mutation.updateItem(
+      {
+        data: updates,
+        where: {
+          id: arguments.id
+        }
+      },
+      info
+    );
   }
-  // createDog(parent, arguments, context, info) {
-  //   //create a dog here!
-  //   global.dogs = global.dogs || [];
-  //   // create a dog
-  //   const newDog = { name: arguments.name };
-  //   global.dogs.push(newDog);
-  //   return newDog;
-  //   // console.log(arguments);
-  // }
 };
 
 module.exports = Mutations;
